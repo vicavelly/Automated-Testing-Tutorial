@@ -105,6 +105,96 @@ namespace Automated_Testing_Tutorial
             2.  Cover unit-test gaps with integration tests
             3.  Use end-to-end tests sparingly(ie. only for the key functions of our app).
 
+
+
+
+
+            WRITING OUR FIRST UNIT TEST CODE
+            --------------------------------
+            lets say were building an app for reserving a table at a restaurant.  A reservation class has one property
+            which specifies the user who made the reservation. NOTE: in real-world this class can have many other properties
+                >>  public class Reservation
+                    {
+                        public User MadeBy { get; set; }
+
+                        public bool CanBeCancelledBy (User user)
+                        {
+                            if(user.IsAdmin)
+                                return true;
+                                
+                            if(MadeBy == user)
+                                return true;
+
+                            return false;
+                        }
+                    }
+
+                    public class User
+                    {
+                        public bool IsAdmin { get; set; }
+                    }
+
+
+            Now to write our first unit test for the 'CanBeCancelledBy' method.
+            To create a test we go to the 'solution explorer' and right-click on the solution and add a new Project.
+            Under 'Installed' -- 'Visual C#' --  click on test and select the 'unit-test-project' rename uning the 
+            following convention. 
+                                   >>           TestNinja.UnitTests
+
+            we use this convention to organize our tests projects.  We would want to seperate the unit test from the integration tests
+            because unit tests run quickly, whereas integration tests take more time.
+            When we do this, we would have something like this.
+
+                >>  using System;
+                    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+                    namespace TestNinja.UnitTests
+                    {
+                        [TestClass]
+                        public class UnitTests1
+                        {
+                                                                                    The convention for nameing a test-method is this. For Instance.
+                                                                                    CanBeCancelledBy_Scenarios_ExpectedBehaviour
+                                                                                    Now we want to test the CanBeCancelledBy method and this method has
+                                                                                    3 Three scenarios/Execution path, ie. three ways to get out of the method. The 1st scenario we want to test is
+                                                                                    'UserIsAdmin' and so the name.
+                                                                                    CanBeCancelledBy_UserIsAdmin_ExpectedBehaviour
+                                                                                    Next we check the expected behavoiur in that scenario and that is (if the user is admin, this scenario should
+                                                                                    return true) so                 CanBeCancelledBy_UserIsAdmin_ReturnsTrue
+                            [TestMethod]
+                            public void CanBeCancelledBy_UserIsAdmin_ReturnsTrue()
+                            {
+                                                                                    Inside every testmethods we have three parts.   ARRANGE     ACT     ASSERT
+                                                                                    The ARRANGE part is where we initialize the object.  In this case we want to the 'Reservation'  class 
+
+                                //ARRANGE
+                                var reservation = new Reservation();
+
+                                                                                    The ACT part is where we act on this object.  we're basically going to call a method(the method we're going to test)
+                                                                                    in this case 'reserevation.CanBeCancelledBy'  so we give it a user who is an ADmin and place it in a variable
+                                //ACT
+                                var result = reservation.CanBeCancelledBy(new User { IsAdmin = true } );
+
+
+                                                                                    So when we get the ressult in the 'act' part, we verify that the result is correct and we use the
+                                                                                    helper class in MSTest Framework called 'Assert'.  The assert class has a bunch of static method
+                                                                                    used to make an assertion(eg. to compare two objects, Check if a variable is an instance of a type
+                                //ASSERT
+                                Assert.IsTrue(result);
+
+                            }
+                        }
+                    }
+            This is how we write a unit test.
+            To run this test we go to the top in the toolBar and click on 'Test' >> 'Run' >> 'All Tests'
+            This is the disadvantage of visual studio tests.  We cant run tests on a specific method only on all tests and 
+            this is why Resharper tests are better..
+                    
+
+            
+                                            
+
+
             
             
          */
