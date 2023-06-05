@@ -1,1 +1,6 @@
 c:\users\dell\documents\visual studio 2015\Projects\Automated Testing Tutorial\Automated Testing Tutorial\bin\Debug\Automated Testing Tutorial.exe.config
+c:\users\dell\documents\visual studio 2015\Projects\Automated Testing Tutorial\Automated Testing Tutorial\bin\Debug\Automated Testing Tutorial.exe
+c:\users\dell\documents\visual studio 2015\Projects\Automated Testing Tutorial\Automated Testing Tutorial\bin\Debug\Automated Testing Tutorial.pdb
+c:\users\dell\documents\visual studio 2015\Projects\Automated Testing Tutorial\Automated Testing Tutorial\obj\Debug\Automated Testing Tutorial.csprojResolveAssemblyReference.cache
+c:\users\dell\documents\visual studio 2015\Projects\Automated Testing Tutorial\Automated Testing Tutorial\obj\Debug\Automated Testing Tutorial.exe
+c:\users\dell\documents\visual studio 2015\Projects\Automated Testing Tutorial\Automated Testing Tutorial\obj\Debug\Automated Testing Tutorial.pdb

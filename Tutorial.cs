@@ -188,7 +188,7 @@ namespace Automated_Testing_Tutorial
             This is how we write a unit test.
             To run this test we go to the top in the toolBar and click on 'Test' >> 'Run' >> 'All Tests'
             This is the disadvantage of visual studio tests.  We cant run tests on a specific method only on all tests and 
-            this is why Resharper tests are better..
+            this is why Resharper tests are better.
                     
 
             
