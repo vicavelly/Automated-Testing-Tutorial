@@ -196,7 +196,51 @@ namespace Automated_Testing_Tutorial
 
 
             
+            USING NUNIT IN VISUAL STUDIO
+            ----------------------------
+            ----------------------------
+
+            Please note that nunit is the preferred testing framework by Mosh
+            First in the Package Manager Console, in the Default Project tab we make sure to select
+            the 'projectName.UnitTests'
+
+            NExt we install the package 
+            >>  install-package NUnit -version 3.8.1
+
+            and also we install the testAdapter
+            >>  install-package NUnit3TestAdapter -version 3.8.0
+                (we need this package to run NUnit tests inside visual studio) [by default, the
+                -the test runner that is built into VS only recognizes MS Tests]
+                Please Note that if we use RESHARPER, we do not need to install this package.
+
+            next insted of the key word [TestClass] that we write on top of every test class,
+            we write [TestFixture] --->>  Please note that we would need to import NUnit framework class.
+                                            using NUnit.Framework;
+
+            next insted of [TestMethod] that we write on top of every test methods, we write
+            - [Test]
+
+            finally, we need to modify how we make assertions (if we go to our current test class (after making the neccessary changes written above),
+            we would find a compilation error on the keyword 'Assert'(This is cause VS deosnt
+            know whether we're reffering to the Assert class in NUnit or the one in MSTest.
+            so we go to the top and remove the MSTest using statement.
+                                        remove
+                                        >> using Microsoft.VisualStudio.TestTools.UnitTesting;
+            The assert class in NUnit has the same api as the one in MSTest, but here we have 
+            a different way of writing assertions which is more readable.
+            EG.
+            we have, the following in one of our MSTest
             
+                    //Assert
+                    Assert.IsTrue(result);    
+
+            anothe way to write the same assertion is like this;
+                >>  Assert.That(result, IsTrue);
+                    in statement "assert that result is true"
+
+            also we can write it like so
+                >>  Assert.That(result == true)
+                    it reads like plain english
          */
 
 
